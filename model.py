@@ -36,5 +36,4 @@ class Artwork(Model):
         available_status = 'is' if self.available else 'is not'
         return f'The artwork is named {self.artwork} and the artist who made it is named {self.artist}. It is priced at {self.price} and {available_status} available.'
 
-db.connect()
 db.create_tables([Artwork])
