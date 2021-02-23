@@ -17,14 +17,9 @@ class Artist(Model):
     def __str__(self):
         return f'{self.name} is the artists name and their email is {self.email}.'
 
-# Connect to DB, and create tables that map to the model Artist.
-# Can have many models, create_tables takes a list of model classes as an arguement
-db.connect()
-db.create_tables([Artist])
-
 class Artwork(Model):
     """ Represents Artwork in the database """
-    artist = ForeignKeyField(Artist, backref='artists')
+    artist = ForeignKeyField(Artist.name, backref='artwork')
     artwork = CharField()
     price = FloatField()
     available = BooleanField(default=True)
@@ -36,4 +31,7 @@ class Artwork(Model):
         available_status = 'is' if self.available else 'is not'
         return f'The artwork is named {self.artwork} and the artist who made it is named {self.artist}. It is priced at {self.price} and {available_status} available.'
 
-db.create_tables([Artwork])
+# Connect to DB, and create tables that map to the model Artist.
+# Can have many models, create_tables takes a list of model classes as an arguement
+db.connect()
+db.create_tables([Artist, Artwork])
