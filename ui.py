@@ -35,3 +35,13 @@ def get_availability_status():
         else:
             print('Type \'is\' or \'is not\'')
 
+def print_menu():
+    print('Artwork Catalog')
+    print('1. Add an artist')
+    print('2. Add artwork')
+    print('3. Display all artists work')
+    print('4. Display artists available work')
+    print('5. Delete artwork')
+    print('6. Change Art availability')
+    print('7. Exit')
+
