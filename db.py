@@ -27,4 +27,4 @@ def delete_artwork():
 
 def change_availability():
     # change the availability status of an artwork, for example, change from available to sold
-    change = (Artwork.update({Artwork.available}).execute()
+    change = Artwork.update({Artwork.available}).execute()
